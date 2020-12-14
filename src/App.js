@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import './styles.css';
+import TodoList from './TodoList';
+import TodoForm from './TodoForm';
+import * as todoActions from './actions/todo';
+import { connect } from 'react-redux'
+//import {handleAddTodo, ADD_TO_DO, addTodo} from './actions/todo'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  componentDidMount() {
+    const { receiveTodos } = this.props
+    receiveTodos()
+  }
+  render() {
+    return (
+      <div className="App">
+        <Typography component="h1" variant="h2">
+          TO DO LIST
+        </Typography>
+        <TodoForm />
+        <TodoList />
+
+      </div>
+    );
+  }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todo
+  }
+}
+
+
+export default connect(mapStateToProps, {...todoActions})(App);
+

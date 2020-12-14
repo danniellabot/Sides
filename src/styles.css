@@ -1,0 +1,31 @@
+.App {
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.small-button {
+    position: relative;
+    top: 10px
+}
+
+.List {
+    position: relative;
+    font-family: Helvetica;
+    font-display: italic;
+    text-align: left
+}
+
+.HomeList {
+    position: relative;
+    
+}
+
+.WorkList {
+    position: relative;
+    top: 60px;
+}
+
+.LeisureList {
+    position: relative;
+    top: 60px;
+}
