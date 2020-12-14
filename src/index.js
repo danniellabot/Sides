@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import middleware from './middleware'
 import App from './App'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 const store = createStore(reducer, middleware)
 
